@@ -2,18 +2,18 @@ extends layout
 
 block content
     div(class='header')
-        h1 X-MEME
+        a(class="link-header" href='/') X-MEME
         p A Crio project to memeify your life
     
     div(class="message")
         h1= 'Latest 100 Memes'
   
-
+    a(id="toplink" href="#top") Back to top
 
     div(class="top")
-        ul 
-            for meme in topmemes
-                li= meme.name 
-                li= meme.caption 
-                img(src=meme.memeurl)
+        for meme in topmemes.reverse()
+            div(class="block")
+                h2(class="meme-heading")= meme.name 
+                h3(class="meme-caption")= meme.caption 
+                img(src=meme.memeurl, class='center' )
             br    

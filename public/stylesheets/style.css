@@ -1,8 +1,8 @@
 .header{
   text-align: center;
   background-color:#05386B;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   width:100%;
 }
 
@@ -33,7 +33,7 @@ a:hover {
   cursor: pointer;
 }
 .message{
-  color:#EDF5E1;
+  color:crimson;
   text-align: center;
 }
 
@@ -112,4 +112,55 @@ a:hover {
 
 .back{
   text-align: center;
+}
+
+.top{
+  text-align: center;
+
+}
+.block{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+  background-color:antiquewhite;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+  
+}
+.meme-heading{
+  background-color:gold;
+  text-align: center;
+  padding: 10px 20px;
+  color:#05386B;
+}
+.meme-caption{
+  
+  text-align: center;
+  padding: 10px 20px;
+  color:indianred;
+  text-shadow: 2px 2px 8px lightcoral;
+}
+
+.center {
+  max-height: 750px;
+  width: 100%;
+}
+
+#toplink {
+  position: fixed;
+  bottom: 10px;
+  float: right;
+  right: 18.5%;
+  left: 77.25%;
+  width: 116px;
+  padding: 1em 1.5em;
+}
+
+#top:hover {
+  background-color: #7dbbf1;
+}
+
+.link-header{
+  font-size: x-large;
 }

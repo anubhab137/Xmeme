@@ -13,6 +13,7 @@ router.get('/memes',function(req,res,next){
   var resultArray = [];
   mongo.connect(url, function(err, client){
     if(err) return err;
+    else console.log("Database connected");
     var database = client.db('test');
     var cursor = database.collection('data').find();
     cursor.forEach(function(doc, err){
@@ -34,6 +35,7 @@ router.post('/add-memes',function(req,res,next){
 
   mongo.connect(url,function(err,client){
     if(err) return err;
+    else console.log("Database connected");
     var database = client.db('test');
     database.collection('data').insertOne(newMeme, function(err,result){
       if(err) return err;
