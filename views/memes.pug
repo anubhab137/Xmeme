@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    div(class='header')
+        h1 X-MEME
+        p A Crio project to memeify your life
+    
+    div(class="message")
+        h1= 'Latest 100 Memes'
+  
+
+
+    div(class="top")
+        ul 
+            for meme in topmemes
+                li= meme.name 
+                li= meme.caption 
+                img(src=meme.memeurl)
+            br    
