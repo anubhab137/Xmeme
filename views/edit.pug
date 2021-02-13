@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  div(class='header')
+    h1= title
+    p A Crio project to memeify your life
+    
+    
+  div(class="message")
+    h2 Edit your meme 
+
+  div(class='main')  
+    p(class='details' align='center') Meme Details 
+    form(class='form1' action="/memes/edit/"+id ,method="POST")
+      
+      input(class='un' type="text" align='center' name="caption" placeholder="Caption")
+      input(class='un' type="url" align='center' name="memeurl" placeholder="Meme url")
+      input(class="submit" align="center" type="submit" value="Submit") 
+  div(class='back')
+    a(class='Top 100' href="/memes") See Latest 100 Memes
+  
