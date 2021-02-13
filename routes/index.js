@@ -1,14 +1,17 @@
+//Importing modules
 var express = require('express');
 var router = express.Router();
 var mongo = require('mongodb');
 var ObjectId = require('mongodb').ObjectId;
 var url = 'mongodb://localhost:27017/test';
 
-/* GET home page. */
+// GET home page. 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'X-MEME' });
 });
 
+
+//GET function for meme route from homepage 
 router.get('/memes',function(req,res,next){
   var resultArray = [];
   mongo.connect(url, function(err, client){
@@ -26,6 +29,8 @@ router.get('/memes',function(req,res,next){
   });
 });
 
+
+//POST function to add meme to database and display it on top 100 memes
 router.post('/add-memes',function(req,res,next){
   var newMeme = {
     name: req.body.name,
@@ -47,6 +52,8 @@ router.post('/add-memes',function(req,res,next){
   res.redirect('/memes')
 });
 
+
+//GET function to display a particular meme using it's id
 router.get('/memes/:id', function(req , res){
   
   var id=req.params.id;
