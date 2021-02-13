@@ -65,5 +65,37 @@ router.get('/memes/:id', function(req , res){
   });
 });
 
+router.get('/memes/edit/:id', function(req, res) {
+  var id=req.params.id;
+  console.log(id);
+  res.render('edit',{id:id});
+});
+
+router.post('/memes/edit/:id', function(req, res) {
+  var id=req.params.id;
+  
+  mongo.connect(url,function(err,client){
+    if(err) return err;
+    else console.log("Database connected");
+    var database = client.db('test');
+    const filter = { _id: ObjectId(id) };
+    // this option instructs the method to create a document if no documents match the filter
+    const options = { upsert: false };
+    // create a document that sets the plot of the movie
+    const updateDoc = {
+      $set: {
+       caption:req.body.caption,memeurl:req.body.memeurl
+      },
+    };
+    const result=database.collection('data').updateOne(filter, updateDoc, options);
+      res.redirect('/memes');
+    
+      client.close();
+      
+    });
+  });
+
+
+
 
 module.exports = router;
