@@ -11,9 +11,13 @@ block content
     a(id="toplink" href="#top") Back to top
 
     div(class="top")
+        - var ct=0;
         for meme in topmemes.reverse()
+            if ct == 100
+                - break
             div(class="block")
                 h2(class="meme-heading")= meme.name 
-                h3(class="meme-caption")= meme.caption 
-                img(src=meme.memeurl, class='center' )
+                h3(class="meme-caption")= meme.caption
+                a(href='/memes/' + meme._id class="nostyle") 
+                    img(src=meme.memeurl, class='center' )
             br    

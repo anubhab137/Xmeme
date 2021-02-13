@@ -13,6 +13,10 @@ body{
 }
 
 
+.nostyle{
+  all: revert;
+}
+
 
 a {
   background-color:#05386B;

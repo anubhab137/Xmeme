@@ -47,4 +47,22 @@ router.post('/add-memes',function(req,res,next){
   res.redirect('/memes')
 });
 
+router.get('/memes/:_id', function(req , res){
+  var id = req.body.id;
+  res.send(id);
+  // mongo.connect(url,function(err,client){
+  //   if(err) return err;
+  //   else console.log("Database connected");
+  //   var database = client.db('test');
+  //   database.collection('data').findOne({"_id": objectId(id)},function(err, result){
+  //     if(err) return err;
+  //     console.log(result);
+  //     res.send(result);
+  //     client.close();
+  //     //res.render('find-meme', {thismeme : memeid});
+  //   });
+  // });
+});
+
+
 module.exports = router;
