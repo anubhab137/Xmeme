@@ -3,7 +3,7 @@ extends layout
 block content
     div(class='header')
         a(class="link-header" href='/') X-MEME
-        p A Crio project to memeify your life
+        h3 A Crio project to memeify your life
     
     div(class="message")
         h1= 'Latest 100 Memes'
@@ -20,6 +20,6 @@ block content
                 h3(class="meme-caption")= meme.caption
                 a(href='/memes/' + meme._id class="nostyle") 
                     img(src=meme.memeurl, class='center' )
-                a(href="/memes/edit/"+meme._id) 
-                    button(type="button") Edit
+                a(href="/memes/edit/"+meme._id class="nostyle") 
+                    button(type="button" class='button') EDIT
             br    
