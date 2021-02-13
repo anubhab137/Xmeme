@@ -31,7 +31,7 @@ router.get('/memes',function(req,res,next){
 
 
 //POST function to add meme to database and display it on top 100 memes
-router.post('/add-memes',function(req,res,next){
+router.post('/memes',function(req,res,next){
   var newMeme = {
     name: req.body.name,
     caption: req.body.caption,
@@ -42,14 +42,22 @@ router.post('/add-memes',function(req,res,next){
     if(err) return err;
     else console.log("Database connected");
     var database = client.db('test');
-    database.collection('data').insertOne(newMeme, function(err,result){
-      if(err) return err;
-      console.log('New Meme Inserted');
+    database.collection('data').findOne(newMeme,function(err, result){
+      if(err)return err;
+      if(result!=null) res.status(409).json("post already exists");
+      else{
+        database.collection('data').insertOne(newMeme, function(err,result){
+         if(err) return err;
+        console.log('New Meme Inserted');
+       });
+       res.redirect('/memes')
+  }
       client.close();      
-    });
+    
   });
 
-  res.redirect('/memes')
+  
+});
 });
 
 
