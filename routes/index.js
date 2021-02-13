@@ -37,14 +37,22 @@ router.post('/add-memes',function(req,res,next){
     if(err) return err;
     else console.log("Database connected");
     var database = client.db('test');
-    database.collection('data').insertOne(newMeme, function(err,result){
-      if(err) return err;
-      console.log('New Meme Inserted');
+    database.collection('data').findOne(newMeme,function(err, result){
+      if(err)return err;
+      if(result!=null) res.status(409).json("post already exists");
+      else{
+        database.collection('data').insertOne(newMeme, function(err,result){
+         if(err) return err;
+        console.log('New Meme Inserted');
+       });
+       res.redirect('/memes')
+  }
       client.close();      
-    });
+    
   });
 
-  res.redirect('/memes')
+  
+});
 });
 
 router.get('/memes/:id', function(req , res){
