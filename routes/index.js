@@ -72,12 +72,16 @@ router.get('/memes/:id', function(req , res){
   });
 });
 
+
+//GET function to edit the memes
 router.get('/memes/edit/:id', function(req, res) {
   var id=req.params.id;
   console.log(id);
   res.render('edit',{id:id});
 });
 
+
+//POST function to save the edited meme 
 router.post('/memes/edit/:id', function(req, res) {
   var id=req.params.id;
   
