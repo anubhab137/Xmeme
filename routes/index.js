@@ -31,7 +31,7 @@ router.get('/memes',function(req,res,next){
 
 
 //POST function to add meme to database and display it on top 100 memes
-router.post('/add-memes',function(req,res,next){
+router.post('/memes',function(req,res,next){
   var newMeme = {
     name: req.body.name,
     caption: req.body.caption,
