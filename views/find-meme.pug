@@ -4,6 +4,7 @@ block content
     div(class='header')
         a(class="link-header" href='/') X-MEME
         p A Crio project to memeify your life
-
-
-    img(src=thismeme.memeurl)
+    div(class='center')
+        h2(class="meme-heading")= thismeme.name 
+        h3(class="meme-caption")= thismeme.caption
+        img(src=thismeme.memeurl,style='width:300px; height:450px;')

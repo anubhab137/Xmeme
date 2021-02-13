@@ -20,4 +20,6 @@ block content
                 h3(class="meme-caption")= meme.caption
                 a(href='/memes/' + meme._id class="nostyle") 
                     img(src=meme.memeurl, class='center' )
+                a(href="/memes/edit") 
+                    button(type="button") Edit
             br    
