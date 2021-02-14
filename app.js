@@ -40,10 +40,10 @@ app.use(function(err, req, res, next) {
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/test";
 
-MongoClient.connect(url, function(err, db) {
+MongoClient.connect(url, function(err, client) {
   if (err) throw err;
   console.log("Database created!");
-  var dbo=db.db('test');
+  var dbo=client.db('test');
   var collName='data';
   dbo.listCollections({name: collName})
     .next(function(err, collinfo) {
@@ -51,10 +51,12 @@ MongoClient.connect(url, function(err, db) {
           dbo.createCollection(collName, function(err, res) {
             if (err) throw err;
             console.log("Collection created!");
+            
         });
       }
+      client.close();
     });
-  db.close();
+  
 });
 
 module.exports = app;
