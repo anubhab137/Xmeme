@@ -1,2 +1,2 @@
 npm install
-npm run devstart
+npm run serverstart

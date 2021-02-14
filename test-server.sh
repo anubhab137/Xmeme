@@ -8,7 +8,7 @@
 
 # Run the user’s installation steps which will install any necessary dependencies required for the server to run, with sudo permission
 
-apt-get install sudo -y
+#apt-get install sudo -y
 
 chmod +x install.sh
 
@@ -19,9 +19,9 @@ sudo ./install.sh
 
 # 2. We’ll be running your server_run.sh as a background process (using &) so that we can run the next set of commands
 
-chmod +x server_run.sh
+chmod +x server-run.sh
 
-./server_run.sh &
+./server-run.sh &
 
 
 # 3. Add a sleep timer to sleep.sh depending upon how long you want to sleep so that the server is ready.
