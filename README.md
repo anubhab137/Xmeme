@@ -15,6 +15,8 @@ The bash scripts take care of all other stuff. You just need to give permission 
 
 ```chmod +x server-run.sh```
 
-Run the app by executing the command:
+Run the server by executing the command:
 
 ```./server-run.sh```
+
+Head over to the 8081 port on your localhost and enjoy!
